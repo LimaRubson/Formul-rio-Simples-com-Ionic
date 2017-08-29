@@ -1,14 +1,41 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Enviar formulário de sugestão
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+ <ion-card-title>Contribua com as melhorias do aplicativo!</ion-card-title>
+            <p>Nos envie sugestão ou relate problema</p><br/>
+
+ <form [formGroup]="form" (ngSubmit)="enviar()">
+
+    <ion-item>
+
+      <ion-label floating>Email:</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label floating>Nome:</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label floating>Mensagem:</ion-label>
+      <ion-textarea formControlName="mensagem"></ion-textarea>
+
+    </ion-item>
+
+      <button ion-button type="submit" [disabled]="!form.valid">Enviar Sugestão</button>
+
+    </form>
+
 </ion-content>
